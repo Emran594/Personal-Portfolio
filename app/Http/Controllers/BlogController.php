@@ -9,4 +9,8 @@ class BlogController extends Controller
     public function index(){
         return view('public.blog');
     }
+
+    public function getBlogs(){
+        return view('dashboard.blog.blog');
+    }
 }
