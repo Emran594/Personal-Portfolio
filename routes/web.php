@@ -37,6 +37,8 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     Route::get('/portfolios',[PortfolioController::class,'getPortfolio'])->name('portfolios');
+    Route::post('/projects', [PortfolioController::class, 'store'])->name('projects.store');
+
     Route::get('/blogs',[BlogController::class,'getBlogs'])->name('blogs');
 });
 
