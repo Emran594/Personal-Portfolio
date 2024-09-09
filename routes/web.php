@@ -35,8 +35,14 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    //portfolio action route
+    Route::get('/portfolio/{id}/edit', [PortfolioController::class, 'edit'])->name('portfolio.edit');
+    Route::put('/portfolio/{id}', [PortfolioController::class, 'update'])->name('portfolio.update');
+    Route::delete('/portfolio/{id}', [PortfolioController::class, 'destroy'])->name('portfolio.destroy');
+
 
     Route::get('/portfolios',[PortfolioController::class,'getPortfolio'])->name('portfolios');
+    Route::get('/portfolio-form',[PortfolioController::class,'formPage'])->name('portfolioForm');
     Route::post('/projects', [PortfolioController::class, 'store'])->name('projects.store');
 
     Route::get('/blogs',[BlogController::class,'getBlogs'])->name('blogs');
