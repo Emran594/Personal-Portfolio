@@ -4,18 +4,13 @@
     <div class="container text-center single-col-max-width">
         <h2 class="heading">Contact</h2>
         <div class="intro">
-        <p>Interested in hiring me for your project or just want to say hi? You can fill in the contact form below or send me an email to <a  class="text-link" href="mailto:#">simon.doe@yourwebsite.com</a></p>
+        <p>Interested in hiring me for your project or just want to say hi? You can fill in the contact form below or send me an email to <a  class="text-link" href="mailto:#">emranhasans594@gmail.com</a></p>
         <p>Want to get connected? Follow me on the social channels below.</p>
         <ul class="list-inline mb-0">
-            <li class="list-inline-item mb-3"><a class="twitter" href="#"><i class="fab fa-twitter fa-fw fa-lg"></i></a></li>
 
-            <li class="list-inline-item mb-3"><a class="linkedin" href="#"><i class="fab fa-linkedin-in fa-fw fa-lg"></i></a></li>
-            <li class="list-inline-item mb-3"><a class="github" href="#"><i class="fab fa-github-alt fa-fw fa-lg"></i></a></li>
-            <li class="list-inline-item"><a class="instagram" href="#"><i class="fab fa-instagram fa-fw fa-lg"></i></a></li>
-            <li class="list-inline-item mb-3"><a class="stack-overflow" href="#"><i class="fab fa-stack-overflow fa-fw fa-lg"></i></a></li>
-            <li class="list-inline-item mb-3"><a class="medium" href="#"><i class="fab fa-medium-m fa-fw fa-lg"></i></a></li>
-            <li class="list-inline-item mb-3"><a class="codepen" href="#"><i class="fab fa-codepen fa-fw fa-lg"></i></a></li>
-
+            <li class="list-inline-item mb-3"><a class="linkedin" href="https://www.linkedin.com/in/emran94/"><i class="fab fa-linkedin-in fa-fw fa-lg"></i></a></li>
+            <li class="list-inline-item mb-3"><a class="github" href="https://github.com/Emran594"><i class="fab fa-github-alt fa-fw fa-lg"></i></a></li>
+            <li class="list-inline-item mb-3"><a class="stack-overflow" href="https://www.facebook.com/emran.sikder.737/"><i class="fab fa-facebook fa-fw fa-lg"></i></a></li>
 
             <!--<li class="list-inline-item mb-3"><a class="facebook" href="#"><i class="fab fa-facebook-f fa-fw fa-lg"></i></a></li>-->
 

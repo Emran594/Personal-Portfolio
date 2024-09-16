@@ -11,9 +11,9 @@
                 <div class="profile-section pt-3 pt-lg-0">
                     <img class="profile-image mb-3 rounded-circle mx-auto" src="{{ asset('assets/images/profile.png') }}" alt="image">
 
-                    <div class="bio mb-3">Hi, my name is Emran Sikder and I'm a software engineer. Welcome to my personal website!</div><!--//bio-->
+                    <div class="bio mb-3">Hi, my name is Emran Sikder and I'm a Web Application Developer. Welcome to my personal website!</div><!--//bio-->
                     <ul class="social-list list-inline py-2 mx-auto">
-                        <li class="list-inline-item"><a href="#" target="_blank"><i class="fab fa-facebook fa-fw"></i></a></li>
+                        <li class="list-inline-item"><a href="https://www.facebook.com/emran.sikder.737/" target="_blank"><i class="fab fa-facebook fa-fw"></i></a></li>
                         <li class="list-inline-item"><a href="https://www.linkedin.com/in/emran94/" target="_blank"><i class="fab fa-linkedin-in fa-fw"></i></a></li>
                         <li class="list-inline-item"><a href="https://github.com/Emran594"><i class="fab fa-github-alt fa-fw" target="_blank"></i></a></li>
                         <li class="list-inline-item"><a href="https://stackoverflow.com/users/17671664/emran-sikder"><i class="fab fa-stack-overflow fa-fw" target="_blank"></i></a></li>
@@ -34,9 +34,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{ '/resume' }}"><i class="fas fa-file-alt fa-fw me-2"></i>Resume</a>
                     </li>
-                    <li class="nav-item">
+                    {{-- <li class="nav-item">
                         <a class="nav-link" href="{{ '/blog' }}"><i class="fas fa-blog fa-fw me-2"></i>Blog</a>
-                    </li>
+                    </li> --}}
                     <li class="nav-item">
                         <a class="nav-link" href="{{ '/contact' }}"><i class="fas fa-envelope-open-text fa-fw me-2"></i>Contact</a>
                     </li>

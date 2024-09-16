@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Portfolio;
 use Illuminate\Http\Request;
 
 class PublicController extends Controller
 {
     public function homepage(){
-        return view('public.main');
+        $portfolios = Portfolio::take(2)->get();
+        return view('public.main',compact('portfolios'));
     }
 
     public function resume(){
