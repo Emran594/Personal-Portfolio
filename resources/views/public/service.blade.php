@@ -4,11 +4,10 @@
     <div class="container text-center single-col-max-width">
         <h2 class="heading">Services &amp; Pricing</h2>
         <div class="intro">
-            <p>I have 10+ years of development experience building software for the web and mobile devices. You can take a look at my <a href="portfolio.html" target="_blank">project portfolio</a> and <a href="resume.html" target="_blank">online resume</a> to find out more about my skills and experiences.</p>
+            <p>I have 4+ years of development experience building software for the web and mobile devices. You can take a look at my <a href="portfolio.html" target="_blank">project portfolio</a> and <a href="resume.html" target="_blank">online resume</a> to find out more about my skills and experiences.</p>
             <p class="mb-0">I'm currently taking on freelance software development work. You're welcome to contact me for a custom quote for your project. I also offer development service packages with fixed pricing. </p>
         </div>
-
-    </div><!--//container-->
+    </div>
 </section>
 
 <section class="pricing-section p-3 p-lg-5">
@@ -228,11 +227,9 @@
                       Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium.
                     </div>
                 </div>
-            </div><!--//accordion-item-->
-
-
-</div><!--//faq-accordion-->
-    </div><!--//container-->
-</section><!--//faq-section-->
+            </div>
+</div>
+    </div>
+</section>
 
 @endsection

@@ -26,39 +26,55 @@
 </section>
 <section class="contact-section px-3 py-5 p-md-5">
     <div class="container">
-        <form id="contact-form" class="contact-form col-lg-8 mx-lg-auto" method="post" action="#">
+        @if(session('success'))
+            <div class="alert alert-success">
+                {{ session('success') }}
+            </div>
+        @endif
+        <form id="contact-form" class="contact-form col-lg-8 mx-lg-auto" method="post" action="{{ route('contact.store') }}">
+            @csrf
             <h3 class="text-center mb-3">Get In Touch</h3>
             <div class="row g-3">
                 <div class="col-12 col-md-6">
                     <label class="sr-only" for="cname">Name</label>
-                    <input type="text" class="form-control" id="cname" name="name" placeholder="Name" minlength="2" required="" aria-required="true">
+                    <input type="text" class="form-control" id="cname" name="name" placeholder="Name" minlength="2" required="" aria-required="true" value="{{ old('name') }}">
+                    @error('name')
+                        <small class="text-danger">{{ $message }}</small>
+                    @enderror
                 </div>
                 <div class="col-12 col-md-6">
                     <label class="sr-only" for="cemail">Email</label>
-                    <input type="email" class="form-control" id="cemail" name="email" placeholder="Email" required="" aria-required="true">
+                    <input type="email" class="form-control" id="cemail" name="email" placeholder="Email" required="" aria-required="true" value="{{ old('email') }}">
+                    @error('email')
+                        <small class="text-danger">{{ $message }}</small>
+                    @enderror
                 </div>
                 <div class="col-12">
                     <select id="services" class="form-select" name="services">
                         <option selected>Select a service package you're interested in...</option>
-                        <option value="basic">Basic</option>
-                        <option value="standard">Standard</option>
-                        <option value="premium">Premium</option>
-                        <option value="not sure">Not sure</option>
+                        <option value="basic" {{ old('services') == 'basic' ? 'selected' : '' }}>Basic</option>
+                        <option value="standard" {{ old('services') == 'standard' ? 'selected' : '' }}>Standard</option>
+                        <option value="premium" {{ old('services') == 'premium' ? 'selected' : '' }}>Premium</option>
+                        <option value="not sure" {{ old('services') == 'not sure' ? 'selected' : '' }}>Not sure</option>
                     </select>
-                    <div class="mt-2">
-                        <small class="form-text text-muted pt-1"><i class="fas fa-info-circle me-2 text-primary"></i>Want to know what's included in each package? Check the <a class="text-link" href="services.html" target="_blank">Services &amp; Pricing</a> page.</small>
-                    </div>
+                    @error('services')
+                        <small class="text-danger">{{ $message }}</small>
+                    @enderror
                 </div>
                 <div class="col-12">
                     <label class="sr-only" for="cmessage">Your message</label>
-                    <textarea class="form-control" id="cmessage" name="message" placeholder="Enter your message" rows="10" required="" aria-required="true"></textarea>
+                    <textarea class="form-control" id="cmessage" name="message" placeholder="Enter your message" rows="10" required="" aria-required="true">{{ old('message') }}</textarea>
+                    @error('message')
+                        <small class="text-danger">{{ $message }}</small>
+                    @enderror
                 </div>
-                 <div class="form-group col-12">
+                <div class="form-group col-12">
                     <button type="submit" class="btn btn-block btn-primary py-2">Send Now</button>
                 </div>
-            </div><!--//form-row-->
+            </div>
         </form>
     </div><!--//container-->
 </section>
+
 
 @endsection

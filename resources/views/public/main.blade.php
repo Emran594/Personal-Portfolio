@@ -7,11 +7,11 @@
             <div class="col">
                 <h2 class="name font-weight-bold mb-1">Emran Sikder</h2>
                 <div class="tagline mb-3">Web Application Developer</div>
-                <div class="bio mb-4">Aspiring Full Stack Developer | PHP, Laravel & WordPress Enthusiast | HTML, CSS, JavaScript, AJAX | MySQL, API Dev | Open to Learning and New Opportunities" <a class="text-link" href="blog-home.html">my blog</a>. Want to know how I may help your project? Check out my project <a class="text-link" href="projects.html">portfolio</a> and <a class="text-link" href="resume.html">online resume</a>.
+                <div class="bio mb-4">Aspiring Full Stack Developer | PHP, Laravel & WordPress Enthusiast | HTML, CSS, JavaScript, AJAX | MySQL, API Dev | Open to Learning and New Opportunities" <a class="text-link" href="blog-home.html">my blog</a>. Want to know how I may help your project? Check out my project <a class="text-link" href="{{ route('portfolio')}}">portfolio</a> and <a class="text-link" href="{{ route('resume')}}">online resume</a>.
                 </div>
                 <div class="mb-4">
-                    <a class="btn btn-primary me-2 mb-3" href="portfolio.html"><i class="fas fa-arrow-alt-circle-right me-2"></i><span class="d-none d-md-inline">View</span> Portfolio</a>
-                    <a class="btn btn-secondary mb-3" href="resume.html"><i class="fas fa-file-alt me-2"></i><span class="d-none d-md-inline">View</span> Resume</a>
+                    <a class="btn btn-primary me-2 mb-3" href="{{ route('portfolio')}}"><i class="fas fa-arrow-alt-circle-right me-2"></i><span class="d-none d-md-inline">View</span> Portfolio</a>
+                    <a class="btn btn-secondary mb-3" href="{{ route('resume')}}"><i class="fas fa-file-alt me-2"></i><span class="d-none d-md-inline">View</span> Resume</a>
                 </div>
             </div><!--//col-->
 
@@ -86,7 +86,7 @@
                 </div><!--//item-inner-->
             </div><!--//item-->
         </div><!--//row-->
-        <div class="text-center py-3"><a href="services.html" class="btn btn-primary"><i class="fas fa-arrow-alt-circle-right me-2"></i>Services &amp; Pricing
+        <div class="text-center py-3"><a href="{{ route('services')}}" class="btn btn-primary"><i class="fas fa-arrow-alt-circle-right me-2"></i>Services &amp; Pricing
 
         </a></div>
 
@@ -328,7 +328,7 @@
                 </div><!--//card-->
             </div><!--//col-->
         </div><!--//row-->
-        <div class="text-center py-3"><a href="portfolio.html" class="btn btn-primary"><i class="fas fa-arrow-alt-circle-right me-2"></i>View Portfolio</a></div>
+        <div class="text-center py-3"><a href="{{ route('portfolio')}}" class="btn btn-primary"><i class="fas fa-arrow-alt-circle-right me-2"></i>View Portfolio</a></div>
 
     </div><!--//container-->
 </section><!--//featured-section-->

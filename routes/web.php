@@ -1,9 +1,11 @@
 <?php
 
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\PortfolioController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PublicController;
+use App\Http\Controllers\ResumeController;
 use App\Http\Controllers\ServiceController;
 use Illuminate\Support\Facades\Route;
 
@@ -22,10 +24,17 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/',[PublicController::class,'homepage'])->name('homepage');
 Route::get('/portfolio',[PortfolioController::class,'index'])->name('portfolio');
+Route::get('/portfolio/{id}', [PortfolioController::class, 'show'])->name('portfolio.show');
 Route::get('/services',[ServiceController::class,'index'])->name('services');
 Route::get('/resume',[PublicController::class,'resume'])->name('resume');
+Route::get('/resume/download', function () {
+    $filePath = public_path('files/emran-cv.pdf');
+    return response()->download($filePath);
+})->name('resume.download');
 Route::get('/blog',[BlogController::class,'index'])->name('blog');
 Route::get('/contact',[PublicController::class,'contact'])->name('contact');
+Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');

@@ -10,7 +10,8 @@ use App\Models\Portfolio;
 class PortfolioController extends Controller
 {
     public function index(){
-        return view('public.portfolio');
+        $portfolios = Portfolio::all();
+        return view('public.portfolio',compact('portfolios'));
     }
 
     public function getPortfolio(){
@@ -63,15 +64,20 @@ class PortfolioController extends Controller
 
     public function destroy($id)
     {
-        // Find the portfolio by its ID or fail
         $portfolio = Portfolio::findOrFail($id);
 
-        // Delete the portfolio
         $portfolio->delete();
 
-        // Redirect to the portfolio list page with a success message
         return redirect()->route('portfolios')->with('success', 'Portfolio deleted successfully');
     }
+
+    public function show($id)
+{
+    $portfolio = Portfolio::findOrFail($id);
+
+    return view('public.portfolio-single', compact('portfolio'));
+}
+
 
 }
 
