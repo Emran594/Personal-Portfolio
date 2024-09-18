@@ -25,9 +25,21 @@ class PortfolioController extends Controller
 
     public function store(StoreProjectRequest $request)
     {
-        $project = Portfolio::create($request->validated());
-        return redirect()->route('portfolios')
-                         ->with('success', 'Project created successfully.');
+        // Validate and retrieve the validated input data
+        $validatedData = $request->validated();
+    
+        // Handle the project image upload
+        if ($request->hasFile('project_image')) {
+            // Store the uploaded image in the 'portfolio_images' directory in the 'public' disk
+            $imagePath = $request->file('project_image')->store('portfolio_images', 'public');
+            $validatedData['project_image'] = $imagePath;
+        }
+    
+        // Create the project in the database with the validated data
+        $project = Portfolio::create($validatedData);
+    
+        // Redirect to the portfolios route with success message
+        return redirect()->route('portfolios')->with('success', 'Project created successfully.');
     }
 
     public function edit($id)
@@ -36,30 +48,24 @@ class PortfolioController extends Controller
 
         return view('dashboard.portfolio.portfolio-show', compact('portfolio'));
     }
-    public function update(Request $request, $id)
-{
-    // Validate the request
-    $request->validate([
-        'title' => 'required|string|max:255',
-        'description' => 'nullable|string',
-        'client_name' => 'required|string|max:255',
-        'industry' => 'required|string|max:255',
-        'website' => 'nullable|url',
-        'client_description' => 'nullable|string',
-        'project_requirements' => 'nullable|string',
-        'project_overview' => 'nullable|string',
-        'solution' => 'nullable|string',
-        'client_satisfaction' => 'required|string',
-        'time_needed' => 'nullable|string|max:255',
-        'status' => 'nullable|boolean',
-    ]);
-
-    $portfolio = Portfolio::findOrFail($id);
-
-    $portfolio->update($request->all());
-
-    return redirect()->route('portfolios')->with('success', 'Portfolio updated successfully');
-}
+    public function update(StoreProjectRequest $request, $id)
+    {
+        // Get the validated data from the request
+        $validatedData = $request->validated();
+    
+        // Find the portfolio record
+        $portfolio = Portfolio::findOrFail($id);
+    
+        // Handle the project image upload if it exists
+        if ($request->hasFile('project_image')) {
+            $validatedData['project_image'] = $request->file('project_image')->store('portfolio_images', 'public');
+        }
+    
+        // Update the portfolio record
+        $portfolio->update($validatedData);
+    
+        return redirect()->route('portfolios')->with('success', 'Portfolio updated successfully');
+    }
 
 
     public function destroy($id)

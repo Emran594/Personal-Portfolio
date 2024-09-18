@@ -82,6 +82,10 @@
                             <label for="timeNeeded">Estimated Time Needed</label>
                             <input type="text" class="form-control" id="timeNeeded" name="time_needed" placeholder="Enter estimated time (e.g., 2 weeks)">
                         </div>
+                        <div class="form-group">
+                            <label for="projectImage">Project Feature Image</label>
+                            <input type="file" class="form-control" id="projectImage" name="project_image">
+                        </div>
                     
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" name="status" value="1" id="isActive">

@@ -16,7 +16,7 @@
             </div><!--//col-->
 
             <div class="col-md-5 col-lg-5">
-                <img class="profile-image img-fluid mb-3 mb-lg-0 me-md-0" src="assets/images/emran.png" alt="">
+                <img class="profile-image img-fluid mb-3 mb-lg-0 me-md-0" src=" {{asset('assets/images/emran.png')}}" alt="">
             </div>
         </div>
     </div>
@@ -217,7 +217,7 @@
                 <div class="card project-card">
                     <div class="row">
                         <div class="col-12 col-xl-5 card-img-holder">
-                            <img src="{{ asset('storage/'.$portfolio->image) }}" class="card-img" alt="{{ $portfolio->title }}">
+                            <img src="{{ asset('assets/images/'.$portfolio->project_image) }}" class="card-img" alt="{{ $portfolio->title }}">
                         </div>
                         <div class="col-12 col-xl-7">
                             <div class="card-body">

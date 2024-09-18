@@ -23,6 +23,7 @@ class Portfolio extends Model
         'client_satisfaction',
         'time_needed',
         'status',
+        'project_image'
     ];
 
     protected $casts = [
