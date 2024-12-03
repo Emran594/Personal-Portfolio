@@ -34,9 +34,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{ '/resume' }}"><i class="fas fa-file-alt fa-fw me-2"></i>Resume</a>
                     </li>
-                    {{-- <li class="nav-item">
+                     <li class="nav-item">
                         <a class="nav-link" href="{{ '/blog' }}"><i class="fas fa-blog fa-fw me-2"></i>Blog</a>
-                    </li> --}}
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ '/contact' }}"><i class="fas fa-envelope-open-text fa-fw me-2"></i>Contact</a>
                     </li>

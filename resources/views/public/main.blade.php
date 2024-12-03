@@ -248,19 +248,15 @@
 
 <div class="container"><hr></div>
 
-<section class="latest-blog-section p-3 p-lg-5 position-relative" style="min-height: 300px;">
+<section class="latest-blog-section p-3 p-lg-5">
     <div class="container">
         <h2 class="section-title font-weight-bold mb-5">Latest Blog Posts</h2>
-        <div class="alert alert-warning text-center w-100" role="alert" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 10;">
-            <h4 class="alert-heading">Under Development</h4>
-            <p>The blog section is currently under development. Stay tuned for updates!</p>
-        </div>
-        <div class="row" style="opacity: 0.5; pointer-events: none;">
+        <div class="row">
             <div class="col-md-4 mb-5">
                 <div class="card blog-post-card">
                     <img class="card-img-top" src="assets/images/blog/blog-post-thumb-card-1.jpg" alt="image">
                     <div class="card-body">
-                        <h5 class="card-title"><a class="theme-link" href="#">Top 3 JavaScript Frameworks</a></h5>
+                        <h5 class="card-title"><a class="theme-link" href="blog-post.html">Top 3 JavaScript Frameworks</a></h5>
                         <p class="card-text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor...</p>
                     </div>
                     <div class="card-footer">
@@ -272,7 +268,7 @@
                 <div class="card blog-post-card">
                     <img class="card-img-top" src="assets/images/blog/blog-post-thumb-card-2.jpg" alt="image">
                     <div class="card-body">
-                        <h5 class="card-title"><a class="theme-link" href="#">About Remote Working</a></h5>
+                        <h5 class="card-title"><a class="theme-link" href="blog-post.html">About Remote Working</a></h5>
                         <p class="card-text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor...</p>
                     </div>
                     <div class="card-footer">
@@ -284,7 +280,7 @@
                 <div class="card blog-post-card">
                     <img class="card-img-top" src="assets/images/blog/blog-post-thumb-card-3.jpg" alt="image">
                     <div class="card-body">
-                        <h5 class="card-title"><a class="theme-link" href="#">A Guide to Becoming a Full-Stack Developer</a></h5>
+                        <h5 class="card-title"><a class="theme-link" href="blog-post.html">A Guide to Becoming a Full-Stack Developer</a></h5>
                         <p class="card-text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor...</p>
                     </div>
                     <div class="card-footer">
@@ -293,8 +289,9 @@
                 </div>
             </div>
         </div><!--//row-->
-        <div class="text-center py-3"><a href="#" class="btn btn-primary disabled">View Blog</a></div>
+        <div class="text-center py-3"><a href="blog-home.html" class="btn btn-primary"><i class="fas fa-arrow-alt-circle-right me-2"></i>View Blog</a></div>
     </div><!--//container-->
 </section><!--//latest-blog-section-->
+
 
 @endsection
