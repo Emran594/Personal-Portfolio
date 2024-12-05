@@ -13,7 +13,7 @@
         <div class="project-meta theme-bg-light p-4">
             <div class="row g-4 g-lg-5">
                 <div class="col-md-5 col-lg-4 col-xxl-3 d-none d-md-block">
-                    <img src="{{ asset('assets/images/'.$portfolio->project_image) }}" class="card-img" alt="{{ $portfolio->title }}">
+                    <img src="{{ asset($portfolio->project_image) }}" class="card-img" alt="{{ $portfolio->title }}">
                 </div><!--//col-->
                 <div class="col-12 col-md-7 col-lg-8 col-xxl-9">
                     <div class="client-info">

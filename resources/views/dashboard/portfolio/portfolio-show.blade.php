@@ -9,7 +9,7 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">
             <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
                 <div class="max-w-12xl">
-                    <form action="{{ route('portfolio.update', $portfolio->id) }}" method="POST">
+                    <form action="{{ route('portfolio.update', $portfolio->id) }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
 
@@ -77,6 +77,10 @@
                         <div class="form-group">
                             <label for="timeNeeded">Estimated Time Needed</label>
                             <input type="text" class="form-control" id="timeNeeded" name="time_needed" value="{{ $portfolio->time_needed }}">
+                        </div>
+                        <div class="form-group">
+                            <label for="projectImage">Project Feature Image</label>
+                            <input type="file" class="form-control" id="projectImage" name="project_image">
                         </div>
                     
                         <div class="form-check">

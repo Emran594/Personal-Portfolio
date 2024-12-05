@@ -24,23 +24,33 @@ class PortfolioController extends Controller
     }
 
     public function store(StoreProjectRequest $request)
-    {
-        // Validate and retrieve the validated input data
-        $validatedData = $request->validated();
-    
-        // Handle the project image upload
-        if ($request->hasFile('project_image')) {
-            // Store the uploaded image in the 'portfolio_images' directory in the 'public' disk
-            $imagePath = $request->file('project_image')->store('portfolio_images', 'public');
-            $validatedData['project_image'] = $imagePath;
+{
+
+    $validatedData = $request->validated();
+
+
+    // Handle the project image upload
+    if ($request->hasFile('project_image')) {
+        $destinationPath = public_path('uploads');
+        if (!file_exists($destinationPath)) {
+            mkdir($destinationPath, 0775, true);
         }
-    
-        // Create the project in the database with the validated data
-        $project = Portfolio::create($validatedData);
-    
-        // Redirect to the portfolios route with success message
-        return redirect()->route('portfolios')->with('success', 'Project created successfully.');
+        $imageName = time() . '.' . $request->file('project_image')->getClientOriginalExtension();
+        $request->file('project_image')->move($destinationPath, $imageName);
+        $validatedData['project_image'] = 'uploads/' . $imageName;
     }
+
+    // Attempt to create the project in the database
+    try {
+        $project = Portfolio::create($validatedData);
+    } catch (\Exception $e) {
+        // Debug the error if the save fails
+        dd($e->getMessage());
+    }
+
+    // Redirect to the portfolios route with success message
+    return redirect()->route('portfolios')->with('success', 'Project created successfully.');
+}
 
     public function edit($id)
     {
@@ -49,24 +59,49 @@ class PortfolioController extends Controller
         return view('dashboard.portfolio.portfolio-show', compact('portfolio'));
     }
     public function update(StoreProjectRequest $request, $id)
-    {
-        // Get the validated data from the request
-        $validatedData = $request->validated();
-    
-        // Find the portfolio record
-        $portfolio = Portfolio::findOrFail($id);
-    
-        // Handle the project image upload if it exists
-        if ($request->hasFile('project_image')) {
-            $validatedData['project_image'] = $request->file('project_image')->store('portfolio_images', 'public');
+{
+    // Find the project by ID
+    $project = Portfolio::findOrFail($id);
+
+    // Validate and retrieve the validated input data
+    $validatedData = $request->validated();
+
+    // Handle the project image upload
+    if ($request->hasFile('project_image')) {
+        // Define the destination path
+        $destinationPath = public_path('uploads');
+
+        // Ensure the destination directory exists
+        if (!file_exists($destinationPath)) {
+            mkdir($destinationPath, 0775, true);
         }
-    
-        // Update the portfolio record
-        $portfolio->update($validatedData);
-    
-        return redirect()->route('portfolios')->with('success', 'Portfolio updated successfully');
+
+        // Generate a unique name for the image
+        $imageName = time() . '.' . $request->file('project_image')->getClientOriginalExtension();
+
+        // Move the uploaded file to the destination path
+        $request->file('project_image')->move($destinationPath, $imageName);
+
+        // Delete the old image if it exists
+        if ($project->project_image && file_exists(public_path($project->project_image))) {
+            unlink(public_path($project->project_image));
+        }
+
+        // Update the validated data with the new image path
+        $validatedData['project_image'] = 'uploads/' . $imageName;
     }
 
+    // Update the project in the database
+    try {
+        $project->update($validatedData);
+    } catch (\Exception $e) {
+        // Debug the error if the update fails
+        return redirect()->back()->withErrors(['error' => 'Failed to update the project: ' . $e->getMessage()]);
+    }
+
+    // Redirect to the portfolios route with success message
+    return redirect()->route('portfolios')->with('success', 'Project updated successfully.');
+}
 
     public function destroy($id)
     {

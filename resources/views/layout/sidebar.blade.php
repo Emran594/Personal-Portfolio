@@ -1,6 +1,6 @@
 <header class="header text-center">
     <div class="force-overflow">
-        <h1 class="blog-name pt-lg-4 mb-0"><a class="no-text-decoration" href="{{ '' }}">Emran Sikder</a></h1>
+        <h1 class="blog-name pt-lg-4 mb-0"><a class="no-text-decoration" href="{{ '/' }}">Emran Sikder</a></h1>
         <nav class="navbar navbar-expand-lg navbar-dark">
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
@@ -59,3 +59,5 @@
         </nav>
     </div><!--//force-overflow-->
 </header>
+
+

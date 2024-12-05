@@ -55,6 +55,8 @@ Route::middleware('auth')->group(function () {
     Route::post('/projects', [PortfolioController::class, 'store'])->name('projects.store');
 
     Route::get('/blogs',[BlogController::class,'getBlogs'])->name('blogs');
+    Route::get('/blogForm',[BlogController::class,'blogForm'])->name('blogForm');
+    Route::post('/posts', [BlogController::class, 'store'])->name('posts.store');
 });
 
 require __DIR__.'/auth.php';

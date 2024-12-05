@@ -217,7 +217,7 @@
                 <div class="card project-card">
                     <div class="row">
                         <div class="col-12 col-xl-5 card-img-holder">
-                            <img src="{{ asset('assets/images/'.$portfolio->project_image) }}" class="card-img" alt="{{ $portfolio->title }}">
+                            <img src="{{ asset($portfolio->project_image) }}" class="card-img" alt="{{ $portfolio->title }}">
                         </div>
                         <div class="col-12 col-xl-7">
                             <div class="card-body">
@@ -252,42 +252,21 @@
     <div class="container">
         <h2 class="section-title font-weight-bold mb-5">Latest Blog Posts</h2>
         <div class="row">
+            @foreach ($posts as $post)
             <div class="col-md-4 mb-5">
                 <div class="card blog-post-card">
-                    <img class="card-img-top" src="assets/images/blog/blog-post-thumb-card-1.jpg" alt="image">
+                    <img class="card-img-top" src="{{$post->featured_image}}" alt="image">
                     <div class="card-body">
-                        <h5 class="card-title"><a class="theme-link" href="blog-post.html">Top 3 JavaScript Frameworks</a></h5>
-                        <p class="card-text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor...</p>
+                        <h5 class="card-title"><a class="theme-link" href="blog-post.html">{{$post->title}}</a></h5>
+                        {{$post->description}}
                     </div>
                     <div class="card-footer">
                         <small class="text-muted">Published 2 days ago</small>
                     </div>
                 </div>
             </div>
-            <div class="col-md-4 mb-5">
-                <div class="card blog-post-card">
-                    <img class="card-img-top" src="assets/images/blog/blog-post-thumb-card-2.jpg" alt="image">
-                    <div class="card-body">
-                        <h5 class="card-title"><a class="theme-link" href="blog-post.html">About Remote Working</a></h5>
-                        <p class="card-text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor...</p>
-                    </div>
-                    <div class="card-footer">
-                        <small class="text-muted">Published a week ago</small>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 mb-5">
-                <div class="card blog-post-card">
-                    <img class="card-img-top" src="assets/images/blog/blog-post-thumb-card-3.jpg" alt="image">
-                    <div class="card-body">
-                        <h5 class="card-title"><a class="theme-link" href="blog-post.html">A Guide to Becoming a Full-Stack Developer</a></h5>
-                        <p class="card-text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor...</p>
-                    </div>
-                    <div class="card-footer">
-                        <small class="text-muted">Published 3 weeks ago</small>
-                    </div>
-                </div>
-            </div>
+            @endforeach
+            
         </div><!--//row-->
         <div class="text-center py-3"><a href="blog-home.html" class="btn btn-primary"><i class="fas fa-arrow-alt-circle-right me-2"></i>View Blog</a></div>
     </div><!--//container-->

@@ -17,6 +17,7 @@
 	<!-- FontAwesome JS -->
     <script defer src="{{ asset('assets/fontawesome/js/all.js') }}"></script>
 
+
     <!-- Plugin CSS -->
     <link rel="stylesheet" href="{{ asset('assets/plugins/tiny-slider/tiny-slider.css') }}">
 
