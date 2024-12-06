@@ -26,7 +26,7 @@
                                 <h5 class="card-title">
                                     <a href="{{ route('portfolio.show', $portfolio->id) }}" class="theme-link">{{ $portfolio->title }}</a>
                                 </h5>
-                                <p class="card-text">{{ Str::limit($portfolio->description, 100) }}</p>
+                                <p class="card-text">{{ $portfolio->description }}</p>
                                 <p class="card-text"><small class="text-muted">Client: {{ $portfolio->client_name }}</small></p>
                             </div>
                         </div>

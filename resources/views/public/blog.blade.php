@@ -26,7 +26,7 @@
                     <img class="card-img-top" src="{{ asset($blog->featured_image) }}" alt="image">
                     <div class="card-body">
                         <h5 class="card-title"><a class="theme-link" href="blog-post.html">{{$blog->title}}</a></h5>
-                        <p class="card-text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient...</p>
+                        <p class="card-text">{{ Str::words(strip_tags(html_entity_decode($blog->description)), 20) }}</p>
                         <p class="mb-0"><a class="text-link" href="blog-post.html">Read more &rarr;</a></p>
 
                     </div>

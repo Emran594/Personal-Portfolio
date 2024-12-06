@@ -3,7 +3,6 @@
 <section class="about-me-section p-3 p-lg-5 theme-bg-light">
     <div class="container">
         <div class="profile-teaser row">
-
             <div class="col">
                 <h2 class="name font-weight-bold mb-1">Emran Sikder</h2>
                 <div class="tagline mb-3">Web Application Developer</div>
@@ -258,7 +257,8 @@
                     <img class="card-img-top" src="{{$post->featured_image}}" alt="image">
                     <div class="card-body">
                         <h5 class="card-title"><a class="theme-link" href="blog-post.html">{{$post->title}}</a></h5>
-                        {{$post->description}}
+                        {{ Str::words(strip_tags(html_entity_decode($post->description)), 50) }}
+                        <p class="mb-0"><a class="text-link" href="blog-post.html">Read more &rarr;</a></p>
                     </div>
                     <div class="card-footer">
                         <small class="text-muted">Published 2 days ago</small>

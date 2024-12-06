@@ -29,7 +29,6 @@ class PortfolioController extends Controller
     $validatedData = $request->validated();
 
 
-    // Handle the project image upload
     if ($request->hasFile('project_image')) {
         $destinationPath = public_path('uploads');
         if (!file_exists($destinationPath)) {
@@ -40,7 +39,6 @@ class PortfolioController extends Controller
         $validatedData['project_image'] = 'uploads/' . $imageName;
     }
 
-    // Attempt to create the project in the database
     try {
         $project = Portfolio::create($validatedData);
     } catch (\Exception $e) {
@@ -76,7 +74,6 @@ class PortfolioController extends Controller
             mkdir($destinationPath, 0775, true);
         }
 
-        // Generate a unique name for the image
         $imageName = time() . '.' . $request->file('project_image')->getClientOriginalExtension();
 
         // Move the uploaded file to the destination path
