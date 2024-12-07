@@ -254,21 +254,21 @@
             @foreach ($posts as $post)
             <div class="col-md-4 mb-5">
                 <div class="card blog-post-card">
-                    <img class="card-img-top" src="{{$post->featured_image}}" alt="image">
+                    <img class="card-img-top" src="{{ asset($post->featured_image) }}" alt="image">
                     <div class="card-body">
-                        <h5 class="card-title"><a class="theme-link" href="blog-post.html">{{$post->title}}</a></h5>
+                        <h5 class="card-title"><a class="theme-link" href="{{ route('blog.show', $post->id) }}">{{$post->title}}</a></h5>
                         {{ Str::words(strip_tags(html_entity_decode($post->description)), 50) }}
-                        <p class="mb-0"><a class="text-link" href="blog-post.html">Read more &rarr;</a></p>
+                        <p class="mb-0"><a class="text-link" href="{{ route('blog.show', $post->id) }}">Read more &rarr;</a></p>
                     </div>
                     <div class="card-footer">
-                        <small class="text-muted">Published 2 days ago</small>
+                        <small class="text-muted">Published {{ $post->created_at->diffForHumans() }}</small>
                     </div>
                 </div>
             </div>
             @endforeach
             
         </div><!--//row-->
-        <div class="text-center py-3"><a href="blog-home.html" class="btn btn-primary"><i class="fas fa-arrow-alt-circle-right me-2"></i>View Blog</a></div>
+        <div class="text-center py-3"><a href="{{route('blog')}}" class="btn btn-primary"><i class="fas fa-arrow-alt-circle-right me-2"></i>View Blog</a></div>
     </div><!--//container-->
 </section><!--//latest-blog-section-->
 

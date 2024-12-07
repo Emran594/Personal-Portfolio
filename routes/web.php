@@ -7,7 +7,9 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PublicController;
 use App\Http\Controllers\ResumeController;
 use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\SubscriptionController;
 use Illuminate\Support\Facades\Route;
+use NunoMaduro\Collision\Adapters\Phpunit\Subscribers\Subscriber;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,8 +27,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/',[PublicController::class,'homepage'])->name('homepage');
 Route::get('/portfolio',[PortfolioController::class,'index'])->name('portfolio');
 Route::get('/portfolio/{id}', [PortfolioController::class, 'show'])->name('portfolio.show');
+Route::get('/blog/{id}', [BlogController::class, 'show'])->name('blog.show');
 Route::get('/services',[ServiceController::class,'index'])->name('services');
 Route::get('/resume',[PublicController::class,'resume'])->name('resume');
+Route::post('/subscriptions', [SubscriptionController::class, 'store'])->name('subscriptions.store');
 Route::get('/resume/download', function () {
     $filePath = public_path('files/emran-cv.pdf');
     return response()->download($filePath);
@@ -57,6 +61,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/blogs',[BlogController::class,'getBlogs'])->name('blogs');
     Route::get('/blogForm',[BlogController::class,'blogForm'])->name('blogForm');
     Route::post('/posts', [BlogController::class, 'store'])->name('posts.store');
+    
+    Route::get('/post/{id}/edit', [BlogController::class, 'edit'])->name('post.edit');
+    Route::put('/post/{id}', [BlogController::class, 'update'])->name('post.update');
+    Route::delete('/post/{id}', [BlogController::class, 'destroy'])->name('post.destroy');
 });
 
 require __DIR__.'/auth.php';
